@@ -2,7 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.rupeedesk.smsaautosender">
 
-    <!-- Required Permissions -->
     <uses-permission android:name="android.permission.SEND_SMS" />
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
@@ -12,10 +11,9 @@
 
     <application
         android:label="SMS Auto Sender"
-        android:name="${applicationName}"
+        android:name="io.flutter.app.FlutterApplication"
         android:icon="@mipmap/ic_launcher">
 
-        <!-- Flutter v2 Main Activity (supports sms_advanced) -->
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -25,17 +23,12 @@
             android:hardwareAccelerated="true"
             android:windowSoftInputMode="adjustResize">
 
-            <meta-data
-                android:name="io.flutter.embedding.android.NormalTheme"
-                android:resource="@style/NormalTheme" />
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
 
-        <!-- Foreground Task Boot Receiver -->
         <receiver
             android:name="com.pravera.flutter_foreground_task.receivers.BootReceiver"
             android:enabled="true"
@@ -44,10 +37,5 @@
                 <action android:name="android.intent.action.BOOT_COMPLETED"/>
             </intent-filter>
         </receiver>
-
-        <!-- Flutter v2 Embedding - REQUIRED -->
-        <meta-data
-            android:name="flutterEmbedding"
-            android:value="2" />
     </application>
 </manifest>

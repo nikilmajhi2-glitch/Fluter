@@ -11,7 +11,7 @@ jobs:
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.19.6'  # ← Downgraded to support v1 embedding
+          flutter-version: '3.35.7'  # Supports Dart >=3.5.0
           channel: 'stable'
 
       - name: Clean & Build

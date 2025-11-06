@@ -1,3 +1,9 @@
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    id "dev.flutter.flutter-gradle-plugin"
+}
+
 android {
     namespace "com.rupeedesk.smsaautosender"
     compileSdk 36
@@ -17,3 +23,9 @@ android {
         }
     }
 }
+
+flutter {
+    source '../..'
+}
+
+dependencies {}

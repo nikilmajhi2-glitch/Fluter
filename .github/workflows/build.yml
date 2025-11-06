@@ -2,9 +2,13 @@ name: Build APK
 
 on:
   push:
-    branches: [ main, develop ]
+    branches:
+      - main
+      - develop
   pull_request:
-    branches: [ main, develop ]
+    branches:
+      - main
+      - develop
 
 jobs:
   build:
@@ -17,40 +21,22 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up Flutter (Auto-upgrade to compatible version)
-        id: flutter_setup
+      - name: Set up Flutter (3.35.7 - Dart >=3.5.0)
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.35.7'
+          channel: 'stable'
+
+      - name: Verify Flutter and Dart versions
         run: |
-          # Install Flutter from stable channel
-          flutter channel stable
-          flutter upgrade
-
-          # Get current version
-          CURRENT_VERSION=$(flutter --version | head -n1 | awk '{print $2}')
-          echo "Detected Flutter version: $CURRENT_VERSION"
-
-          # Check if version supports Dart >=3.5.0 (Flutter 3.35.7+)
-          if [[ "$CURRENT_VERSION" < "3.35.7" ]]; then
-            echo "Upgrading Flutter to 3.35.7 to support Dart >=3.5.0..."
-            flutter version 3.35.7
-            echo "Flutter upgraded to 3.35.7"
-          else
-            echo "Flutter $CURRENT_VERSION already supports required Dart SDK"
-          fi
-
-          # Final version confirmation
-          FINAL_VERSION=$(flutter --version | head -n1 | awk '{print $2}')
-          echo "Using Flutter version: $FINAL_VERSION"
-          echo "FLUTTER_VERSION=$FINAL_VERSION" >> $GITHUB_OUTPUT
-
-      - name: Verify Dart SDK version
-        run: |
+          flutter --version
           dart --version
           flutter doctor -v
 
       - name: Clean project
         run: flutter clean
 
-      - name: Get dependencies
+      - name: Install dependencies
         run: flutter pub get
 
       - name: Build Release APK
@@ -59,14 +45,15 @@ jobs:
       - name: Upload APK as artifact
         uses: actions/upload-artifact@v4
         with:
-          name: sms-auto-sender-v${{ steps.flutter_setup.outputs.FLUTTER_VERSION }}.apk
+          name: sms-auto-sender.apk
           path: build/app/outputs/flutter-apk/app-release.apk
+          if-no-files-found: error
           retention-days: 30
 
-      - name: Notify success (optional)
+      - name: Build success notification
         if: success()
-        run: echo "APK built successfully with Flutter ${{ steps.flutter_setup.outputs.FLUTTER_VERSION }}"
+        run: echo "APK built successfully using Flutter 3.35.7"
 
-      - name: Notify failure (optional)
+      - name: Build failure notification
         if: failure()
-        run: echo "Build failed. Check logs above."
+        run: echo "Build failed. Check logs for details."

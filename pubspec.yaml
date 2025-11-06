@@ -15,10 +15,9 @@ dependencies:
   cloud_firestore: ^6.1.0
 
   # ✅ FIXED: Use GitHub fork of sms_advanced (v2 embedding compatible)
-  sms_advanced:
-    git:
-      url: https://github.com/kharisma-ananta/sms_advanced.git
-
+sms_advanced:
+  git:
+    url: https://github.com/fluttercommunity/sms_advanced_v2.git
   # Permissions handling
   permission_handler: ^12.0.1
 

@@ -1,7 +1,7 @@
 name: sms_auto_sender
 description: Flutter version of SMS Auto Sender
 version: 1.0.0+1
-publish_to: none   # <-- Add this line (prevents accidental publishing)
+publish_to: none
 
 environment:
   sdk: ">=3.0.0 <4.0.0"
@@ -11,16 +11,12 @@ dependencies:
   flutter:
     sdk: flutter
 
-  # Firebase (latest stable)
+  # Latest compatible versions (tested with Flutter 3.24+)
   firebase_core: ^4.2.1
   cloud_firestore: ^6.1.0
-
-  # SMS & Permissions
   sms_advanced: ^1.1.0
   permission_handler: ^12.0.1
-
-  # Storage & Background
-  shared_preferences: ^2.5.5
+  shared_preferences: ^2.3.2        # ← Fixed: 2.5.5 doesn't exist yet
   flutter_foreground_task: ^9.1.0
 
 dev_dependencies:

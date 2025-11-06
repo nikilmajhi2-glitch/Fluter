@@ -45,7 +45,7 @@
             </intent-filter>
         </receiver>
 
-        <!-- Flutter v2 Embedding -->
+        <!-- REQUIRED: Flutter v2 Embedding -->
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />

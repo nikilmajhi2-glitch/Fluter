@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.rupeedesk.smsaautosender">
 
-    <!-- Permissions -->
+    <!-- Required Permissions -->
     <uses-permission android:name="android.permission.SEND_SMS" />
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
@@ -45,7 +45,7 @@
             </intent-filter>
         </receiver>
 
-        <!-- Flutter v2 Embedding - REQUIRED -->
+        <!-- Flutter v2 Embedding (MUST BE HERE) -->
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />

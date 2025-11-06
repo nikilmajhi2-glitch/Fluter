@@ -15,7 +15,7 @@
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
 
-        <!-- Main Activity (v2 + Fragment for sms_advanced) -->
+        <!-- Main Activity -->
         <activity
             android:name=".MainActivity"
             android:exported="true"

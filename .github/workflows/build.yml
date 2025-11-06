@@ -21,13 +21,16 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up Flutter (3.35.7 - Dart >=3.5.0)
+      - name: Set up Flutter 3.35.7
         uses: subosito/flutter-action@v2
         with:
           flutter-version: '3.35.7'
           channel: 'stable'
 
-      - name: Verify Flutter and Dart versions
+      - name: Accept Android SDK licenses
+        run: yes | flutter doctor --android-licenses
+
+      - name: Verify Flutter setup
         run: |
           flutter --version
           dart --version
@@ -42,7 +45,7 @@ jobs:
       - name: Build Release APK
         run: flutter build apk --release
 
-      - name: Upload APK as artifact
+      - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: sms-auto-sender.apk
@@ -50,10 +53,10 @@ jobs:
           if-no-files-found: error
           retention-days: 30
 
-      - name: Build success notification
+      - name: Success
         if: success()
-        run: echo "APK built successfully using Flutter 3.35.7"
+        run: echo "APK built successfully!"
 
-      - name: Build failure notification
+      - name: Failure
         if: failure()
-        run: echo "Build failed. Check logs for details."
+        run: echo "Build failed. Check logs."

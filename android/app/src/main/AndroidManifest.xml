@@ -2,7 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.rupeedesk.smsaautosender">
 
-    <!-- Permissions -->
     <uses-permission android:name="android.permission.SEND_SMS" />
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
@@ -15,7 +14,6 @@
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
 
-        <!-- Flutter v2 Activity -->
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -35,7 +33,6 @@
             </intent-filter>
         </activity>
 
-        <!-- Foreground Task Boot Receiver -->
         <receiver
             android:name="com.pravera.flutter_foreground_task.receivers.BootReceiver"
             android:enabled="true"
@@ -45,7 +42,6 @@
             </intent-filter>
         </receiver>
 
-        <!-- REQUIRED: Flutter v2 Embedding -->
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />

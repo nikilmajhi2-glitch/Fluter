@@ -1,5 +1,6 @@
 package com.rupeedesk.smsaautosender
 
-import io.flutter.app.FlutterActivity
+import io.flutter.embedding.android.FlutterFragmentActivity
 
-class MainActivity : FlutterActivity()
+class MainActivity: FlutterFragmentActivity() {
+}

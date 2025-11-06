@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.rupeedesk.smsaautosender">
 
@@ -10,8 +9,8 @@
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application
-        android:label="SMS Auto Sender"
         android:name="${applicationName}"
+        android:label="SMS Auto Sender"
         android:icon="@mipmap/ic_launcher">
 
         <activity
@@ -42,7 +41,6 @@
             </intent-filter>
         </receiver>
 
-        <!-- v2 Embedding -->
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />

@@ -1,0 +1,18 @@
+android {
+    compileSdk 36
+
+    defaultConfig {
+        applicationId "com.rupeedesk.smsaautosender"
+        minSdk 28
+        targetSdk 36
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.debug // Change later
+            minifyEnabled false
+        }
+    }
+}

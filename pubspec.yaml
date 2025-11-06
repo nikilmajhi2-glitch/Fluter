@@ -9,11 +9,23 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+
+  # Firebase core services
   firebase_core: ^4.2.1
   cloud_firestore: ^6.1.0
-  sms_advanced: ^1.1.0
+
+  # ✅ FIXED: Use GitHub fork of sms_advanced (v2 embedding compatible)
+  sms_advanced:
+    git:
+      url: https://github.com/kharisma-ananta/sms_advanced.git
+
+  # Permissions handling
   permission_handler: ^12.0.1
+
+  # Shared preferences
   shared_preferences: ^2.3.2
+
+  # Foreground service (compatible with v2 embedding)
   flutter_foreground_task: ^9.1.0
 
 dev_dependencies:

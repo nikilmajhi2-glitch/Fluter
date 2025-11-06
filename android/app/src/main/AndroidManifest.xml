@@ -15,7 +15,7 @@
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
 
-        <!-- Flutter v2 Activity -->
+        <!-- Flutter v2 Main Activity -->
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -35,7 +35,7 @@
             </intent-filter>
         </activity>
 
-        <!-- Boot Receiver -->
+        <!-- Boot Receiver for Foreground Task -->
         <receiver
             android:name="com.pravera.flutter_foreground_task.receivers.BootReceiver"
             android:enabled="true"
@@ -45,7 +45,7 @@
             </intent-filter>
         </receiver>
 
-        <!-- Flutter v2 Embedding (REQUIRED) -->
+        <!-- Flutter v2 Embedding - REQUIRED -->
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />

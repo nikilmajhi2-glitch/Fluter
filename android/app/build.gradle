@@ -1,26 +1,29 @@
 plugins {
-    id "com.android.application"
-    id "kotlin-android"
-    id "dev.flutter.flutter-gradle-plugin"
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'com.google.gms.google-services'
+    id 'dev.flutter.flutter-gradle-plugin'
 }
 
 android {
     namespace "com.rupeedesk.smsaautosender"
-    compileSdk 36
+    compileSdkVersion 34
 
     defaultConfig {
         applicationId "com.rupeedesk.smsaautosender"
-        minSdk 28
-        targetSdk 36
+        minSdkVersion 23
+        targetSdkVersion 34
         versionCode 1
         versionName "1.0"
+
+        multiDexEnabled true
     }
 
     buildTypes {
         release {
-            minifyEnabled false
             shrinkResources false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            minifyEnabled false
+            signingConfig signingConfigs.debug
         }
     }
 
@@ -38,4 +41,7 @@ flutter {
     source '../..'
 }
 
-dependencies {}
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.9.24"
+    implementation 'androidx.multidex:multidex:2.0.1'
+}
